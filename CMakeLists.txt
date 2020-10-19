@@ -4,6 +4,11 @@ set(LLVM_LINK_COMPONENTS
 
 add_clang_executable(LTPluginTooling
     LTPluginTooling.cpp
+    OCCPlusPlusBridge/OCCPlusPlusBridge.h
+    OCCPlusPlusBridge/CPlusPlusCommunicationInterface.h
+    OCCPlusPlusBridge/CPlusPlusCommunicationInterface.m
+    OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.h
+    OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.m
 )
 
 target_link_libraries(LTPluginTooling

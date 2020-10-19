@@ -11,6 +11,11 @@
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Tooling/Tooling.h"
 
+#include "OCCPlusPlusBridge.h"
+
+void *GlobleOCTargetObserverCPlusPlus = NULL;
+CPlusPlusCallOCFunction GlobleTargetCallFunction = NULL;
+
 using namespace clang;
 using namespace std;
 using namespace llvm;
@@ -51,6 +56,12 @@ namespace LTPlugin {
         LTMatchHandle(CompilerInstance &CI) : CI(CI){}
         
         void run(const MatchFinder::MatchResult &Result) {
+            //C++ 即将调用 OC 代码
+            std::string str1 = "ExampleMethod";
+            void *param = &str1;
+            enum CPlusPlusCallOCFunctionActionType actionType = ActionTypeExampleMethod;
+            GlobleTargetCallFunction(GlobleOCTargetObserverCPlusPlus, actionType, param);
+            
             const ObjCPropertyDecl *propertyDecl = Result.Nodes.getNodeAs<ObjCPropertyDecl>("objcPropertyDecl");
             if (propertyDecl &&
                 isUserSourceCode(CI.getSourceManager().getFilename(propertyDecl->getSourceRange().getBegin()).str())) {
