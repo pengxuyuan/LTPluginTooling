@@ -2,14 +2,26 @@ set(LLVM_LINK_COMPONENTS
     Support
 )
 
-add_clang_executable(LTPluginTooling
-    LTPluginTooling.cpp
-    OCCPlusPlusBridge/OCCPlusPlusBridge.h
-    OCCPlusPlusBridge/CPlusPlusCommunicationInterface.h
-    OCCPlusPlusBridge/CPlusPlusCommunicationInterface.m
-    OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.h
-    OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.m
+# 查找当前目录下的所有源文件
+# 并将名称保存到 DIR_SRCS 变量
+aux_source_directory(. DIR_SRCS)
+
+# 添加 math 子目录
+#add_subdirectory(OCCPlusPlusBridge)
+
+add_clang_executable(LTPluginTooling ${DIR_SRCS}
+    #LTPluginTooling.hpp
+    #LTPluginTooling.cpp
+    #OCCPlusPlusBridge/OCCPlusPlusBridge.h
+    #OCCPlusPlusBridge/CPlusPlusCommunicationInterface.h
+    #OCCPlusPlusBridge/CPlusPlusCommunicationInterface.m
+    #OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.h
+    #OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.m
 )
+
+# 指定生成目标
+# add_executable(Demo ${DIR_SRCS})
+
 
 target_link_libraries(LTPluginTooling
     PRIVATE
@@ -25,6 +37,7 @@ target_link_libraries(LTPluginTooling
     clangToolingCore
     clangRewrite
     clangRewriteFrontend
+    #OCCPlusPlusBridge
 )
 
 if (UNIX)
