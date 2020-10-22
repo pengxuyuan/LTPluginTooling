@@ -8,15 +8,16 @@ aux_source_directory(. DIR_SRCS)
 
 # 添加 math 子目录
 #add_subdirectory(OCCPlusPlusBridge)
+#add_clang_subdirectory(OCCPlusPlusBridge)
 
-add_clang_executable(LTPluginTooling ${DIR_SRCS}
-    #LTPluginTooling.hpp
-    #LTPluginTooling.cpp
-    #OCCPlusPlusBridge/OCCPlusPlusBridge.h
-    #OCCPlusPlusBridge/CPlusPlusCommunicationInterface.h
-    #OCCPlusPlusBridge/CPlusPlusCommunicationInterface.m
-    #OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.h
-    #OCCPlusPlusBridge/OCObjectRegisteredObserverCenter.m
+add_clang_executable(LTPluginTooling
+    LTPluginTooling.hpp
+    LTPluginTooling.cpp
+    OCCPlusPlusBridge.h
+    CPlusPlusCommunicationInterface.h
+    CPlusPlusCommunicationInterface.m
+    OCObjectRegisteredObserverCenter.h
+    OCObjectRegisteredObserverCenter.m
 )
 
 # 指定生成目标

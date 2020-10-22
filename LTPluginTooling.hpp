@@ -8,6 +8,6 @@
 #ifndef LTPluginTooling_h
 #define LTPluginTooling_h
 
-#include "OCCPlusPlusBridge.h"
+//#include "OCCPlusPlusBridge.h"
 
 #endif /* LTPluginTooling_h */

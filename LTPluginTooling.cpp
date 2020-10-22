@@ -11,8 +11,8 @@
 #include "clang/Frontend/FrontendActions.h"
 #include "clang/Tooling/Tooling.h"
 
-//#include "OCCPlusPlusBridge.h"
-#include "LTPluginTooling.hpp"
+#include "OCCPlusPlusBridge.h"
+//#include "LTPluginTooling.hpp"
 
 void *GlobleOCTargetObserverCPlusPlus = NULL;
 CPlusPlusCallOCFunction GlobleTargetCallFunction = NULL;
