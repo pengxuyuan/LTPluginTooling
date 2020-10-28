@@ -18,7 +18,7 @@
 @implementation OCObjectRegisteredObserverCenter
 
 + (void)load {
-    NSLog(@"OCObjectRegisteredObserverCenter");
+    NSLog(@"OCObjectRegisteredObserverCenter 开始注册：将 CPlusPlusCommunicationInterface 注册成接受 C++ 消息对象");
     CPlusPlusCommunicationInterface *interface = [CPlusPlusCommunicationInterface sharedInstance];
     void *targetOCObject = (__bridge void*)interface;
     
